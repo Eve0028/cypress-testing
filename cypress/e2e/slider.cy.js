@@ -18,14 +18,13 @@ describe('Swiper Gallery Test', function () {
 });
 
 describe('Swiper Gallery Test', function () {
-  it('Checks if third slide contains "Paris"', function () {
+  it('Checks if slides change content', function () {
     cy.visit('http://localhost:3000');
-    // slide1 = cy.get('swiper-slide-active .card-description>h1')
     cy.get('.swiper-button-next').click();
     cy.wait(2000);
-    cy.get('swiper-slide-active .card-description>h1').should('not.have.value', 'Rome')
+    cy.get('.swiper-slide-active .card-description > h1').should('not.have.value', 'Rome')
     cy.get('.swiper-button-prev').click();
     cy.wait(2000);
-    cy.get('swiper-slide-active .card-description>h1').should('not.have.value', 'London')
+    cy.get('.swiper-slide-active .card-description > h1').should('not.have.value', 'London')
   });
 });
